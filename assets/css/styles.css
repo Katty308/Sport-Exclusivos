@@ -1,0 +1,1037 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('./assets/img/fondo.jpg');
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem; /* Ajusta el espaciado interno */
+    height: 80px; /* Ajusta la altura total de la barra */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: transparent;
+}
+
+
+/* Logo más grande */
+.logo img {
+    height: 100px;
+}
+
+/* Estilo de los enlaces de navegación */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 1.5rem;
+}
+
+/* Enlaces de navegación con línea roja al pasar el cursor */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: red;
+}
+
+/* Línea roja debajo de cada enlace al pasar el cursor */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px; /* Ajuste de posición de la línea */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Tamaño de los iconos de la barra de navegación */
+.icons img {
+    width: 28px;
+    margin-left: 1.2rem;
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+
+/* Margen adicional para el último icono (carrito) */
+.icons a:last-child {
+    margin-right: 1.5rem; /* Ajusta el valor según lo que prefieras */
+}
+
+/* Iconos en color rojo al pasar el cursor */
+.icons img:hover {
+    filter: brightness(0) saturate(100%) invert(33%) sepia(96%) saturate(454%) hue-rotate(344deg) brightness(94%) contrast(102%);
+}
+
+.hero-image {
+    max-width: 50%;
+    transition: transform 0.5s ease; /* Transición suave de 0.5 segundos */
+}
+
+.hero-image:hover {
+    transform: translateX(70px); /* Mueve la imagen 10px hacia la derecha al pasar el cursor */
+}
+
+/* Sección hero con imagen a la derecha y texto a la izquierda */
+.hero {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    height: 100vh;
+    text-align: left;
+    color:white;
+    padding-top: 7rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.hero-text {
+    max-width: 100%;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color:white;
+}
+
+.hero-text span {
+    color: red;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    color: white;
+    background-color: red;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Transición del botón de compra */
+.cta-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    color: white;
+    background-color: red;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave en escala y color de fondo */
+}
+
+.cta-button:hover {
+    transform: scale(1.1); /* Agranda el botón un 10% al pasar el cursor */
+    background-color: darkred; /* Cambia el color del fondo al pasar el cursor */
+}
+
+.hero-image {
+    max-width: 50%;
+}
+
+/* Estilo para el menú de navegación */
+.navbar {
+    background-color: #fff;
+    padding: 10px 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 16px; /* Tamaño de letra moderado */
+    color: black; /* Color de texto negro */
+    padding: 10px;
+    display: block;
+    text-align: center;
+    transition: color 0.3s, background-color 0.3s; /* Transición suave */
+}
+
+/* Estilo para los submenús (dropdown) */
+.dropdown-menu {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none; /* Escondemos el submenú por defecto */
+    background-color: #f5f5f5; /* Color de fondo suave */
+    padding: 10px 0;
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 180px; /* Ancho fijo para los submenús */
+}
+
+/* Mostrar el submenú al hacer hover sobre el elemento principal */
+.dropdown:hover .dropdown-menu {
+    display: block; /* Mostrar submenú */
+}
+
+/* Estilo de los enlaces dentro del submenú */
+.dropdown-menu li a {
+    color: black; /* Color de texto negro */
+    font-size: 14px; /* Tamaño de letra más pequeño y armónico */
+    padding: 8px 15px;
+    border-radius: 0; /* Bordes cuadrados */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+/* Efecto al poner el cursor sobre los submenús */
+.dropdown-menu li a:hover {
+    background-color: red; /* Fondo rojo al pasar el cursor */
+    color: white; /* Color blanco para el texto */
+}
+
+/* Estilo al pasar el cursor sobre los enlaces principales */
+.nav-links a:hover {
+    color: red; /* Cambiar el color del texto a rojo */
+}
+#css-tienda
+
+/* General styling for body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* Contenedor principal de productos en cuadrícula */
+#tienda {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Contenedor de cada producto */
+.producto-1, .producto-2, .producto-3, .producto-4, .producto-5, .producto-6, .producto-7, .producto-8, .producto-9 {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Imagen del producto con efecto de transición */
+.img-producto {
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.img-producto:hover {
+    transform: scale(1.1);
+}
+
+/* Nombre del producto */
+.detalles-producto h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Precio del producto */
+.detalles-producto .precio {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+/* Descripción del producto */
+.detalles-producto .descripcion {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* Botones de colores */
+.colores {
+    display: flex;
+    justify-content: center; /* Centra los botones de colores */
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.color-btn {
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Contenedor de cantidad */
+.cantidad-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.cantidad-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #747575;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cantidad-input {
+    width: 50px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Botón de agregar al carrito */
+.agregar-carrito {
+    background-color:red;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.agregar-carrito:hover {
+    background-color:red;
+}
+
+#boton-de-busqueda
+/* Estilo para la barra de búsqueda */
+#search-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 5px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    margin-right: 5px; /* Espacio a la derecha del formulario de búsqueda */
+}
+
+#search-form input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 150px; /* Reducir el tamaño de la barra de búsqueda para que no ocupe tanto espacio */
+}
+
+#search-form button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Estilo para los iconos en la barra de navegación */
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Reducir el espacio entre los iconos */
+}
+
+/* Ajustar el espaciado entre los iconos */
+.icons a {
+    margin: 0 3px; /* Reducir el margen entre los iconos */
+}
+
+/* Estilo para las secciones de navegación */
+.nav-links {
+    display: flex;
+    gap: 10px; /* Reducir el espacio entre los elementos de navegación */
+    margin-right: 10px; /* Ajustar si necesitas un margen */
+}
+
+.nav-links li {
+    margin: 0; /* Eliminar márgenes adicionales en los elementos de la lista */
+}
+
+/* Reduce el margen y padding de los enlaces */
+.nav-links li a {
+    padding: 5px 10px; /* Ajusta el padding para que los enlaces estén más juntos */
+}
+
+/* Estilo para los iconos en la barra de navegación */
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacio entre los iconos */
+}
+
+#search-icon {
+    cursor: pointer;
+}
+
+/* Mostrar el formulario de búsqueda al hacer clic en el ícono de búsqueda */
+#search-icon.active + #search-form {
+    display: flex;
+}
+
+#ventana-usuario
+
+/* Estilos para el botón del icono de usuario */
+#icono-usuario {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+#icono-usuario img {
+    width: 30px;  /* Ajusta el tamaño del icono */
+    height: auto;
+}
+
+/* Ventana del usuario */
+.ventana-usuario {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;  /* Inicialmente oculta */
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido-usuario {
+    background-image: url("./assets/img/novedad\ 1.jpg");
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+.btn-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Coloca el botón en la parte superior derecha del formulario */
+    background: transparent;
+    color:#000;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-cerrar:hover {
+    color: #ff0000; /* Cambia el color cuando el usuario pasa el mouse sobre la "X" */
+}
+
+#cerrar-ventana {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#ventana-carrito
+.icono-carrito {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 6px;
+}
+
+/* Botón del carrito */
+.icono-carrito {
+    position: relative;
+    background-color: black; /* Fondo negro */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%; /* Hace el botón circular */
+}
+
+.icono-carrito img {
+    width: 24px; /* Ajusta el tamaño del ícono dentro del botón */
+    height: 24px;
+}
+
+/* Contador de cantidad */
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px; /* Asegura un tamaño mínimo para que sea visible */
+    height: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Agrega sombra para mejor visibilidad */
+}
+
+/* Ventana lateral del carrito */
+.ventana-carrito {
+    position: fixed;
+    right: 60px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #f8f9fa;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.contenido-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#cerrar-carrito {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/* Estilos para los botones de cantidad */
+.cantidad-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.cantidad-container button {
+    font-size: 16px;  /* Tamaño más pequeño para los botones */
+    padding: 5px 10px; /* Ajustar tamaño de botones */
+    cursor: pointer;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+/* Estilo para el input de cantidad */
+.cantidad-container input {
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* Estilo para el botón "Agregar al carrito" */
+.btn-agregar {
+    background-color: red !important;  /* Forzar color rojo */
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.btn-agregar:hover {
+    background-color: darkred; /* Efecto hover */
+}
+
+#barra-de-navegacion
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem; /* Ajusta el espaciado interno */
+    height: 80px; /* Ajusta la altura total de la barra */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: transparent;
+}
+
+/* Logo más grande */
+.logo img {
+    height: 80px;
+}
+
+/* Estilo de los enlaces de navegación */
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 1.5rem;
+}
+
+/* Enlaces de navegación con línea roja al pasar el cursor */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: red;
+}
+
+/* Línea roja debajo de cada enlace al pasar el cursor */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px; /* Ajuste de posición de la línea */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* Tamaño de los iconos de la barra de navegación */
+.icons img {
+    width: 28px;
+    margin-left: 1.2rem;
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+
+/* Margen adicional para el último icono (carrito) */
+.icons a:last-child {
+    margin-right: 1.5rem; /* Ajusta el valor según lo que prefieras */
+}
+
+/* Iconos en color rojo al pasar el cursor */
+.icons img:hover {
+    filter: brightness(0) saturate(100%) invert(33%) sepia(96%) saturate(454%) hue-rotate(344deg) brightness(94%) contrast(102%);
+}
+
+
+/* Espacio entre la barra de navegación y el carrusel */
+.spacer {
+    height: 100px;
+}
+
+/* Carrusel */
+.carousel-inner img {
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Carrusel con fondo oscuro para texto */
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro para el texto */
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 300px;
+    }
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('./assets/img/fondo.jpg');
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Fondo blanco específico para novedades.html */
+body.novedades {
+    background-image: none;
+    background-color: white;
+}
+
+/* Estilos de la barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: #000; /* Fondo negro */
+}
+
+.navbar-brand img {
+    height: 60px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 1.5rem;
+}
+
+.nav-links a {
+    color: #ffffff; /* Color de texto blanco */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: red; /* Color naranja al pasar el ratón */
+}
+
+/* Iconos en la barra de navegación */
+.icons img {
+    width: 28px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+
+.icons img:hover {
+    filter: brightness(0) saturate(100%) invert(33%) sepia(96%) saturate(454%) hue-rotate(344deg) brightness(94%) contrast(102%);
+}
+
+/* Estilo para el carrusel */
+.carousel-inner img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 300px;
+    }
+}
+
+/* Ajustes para contenedor de imágenes de productos */
+.producto {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    overflow: hidden; /* Oculta el desbordamiento de imágenes */
+}
+
+.imagen-producto {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-height: 300px; /* Altura máxima del contenedor */
+    border-radius: 8px; /* Bordes redondeados para imágenes */
+}
+.discount-text {
+    font-weight: bold; /* Hace el texto en negrita */
+    background-color: red; /* Fondo rojo */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado alrededor del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    display: inline-block; /* Asegura que el div sea ajustable al contenido */
+}
+
+.img-producto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen al contenedor */
+    transition: transform 0.3s ease;
+}
+.discount-text {
+    font-weight: bold; /* Hace el texto en negrita */
+    background-color: red; /* Fondo rojo */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado alrededor del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    display: inline-block; /* Asegura que el div sea ajustable al contenido */
+}
+
+/* Contenedor de las líneas y el título */
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Línea negra a los lados */
+.section-title .line {
+    flex: 1;
+    height: 2px;
+    background-color: black;
+}
+
+/* Estilo del texto "Marcas" */
+.section-title span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    padding: 0 10px;
+}
+
+.container.text-center .row img {
+    max-width: 100px; /* Ajusta el tamaño máximo de ancho */
+    max-height: 100px; /* Ajusta el tamaño máximo de altura */
+    object-fit: contain; /* Asegura que la imagen mantenga sus proporciones */
+    display: block;
+    margin: 0 auto; /* Centra la imagen dentro de su columna */
+}
+/* Estilo de la sección principal */
+main {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Títulos */
+h1 {
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    color: #2C3E50;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #cc2020; /* Color rojo para títulos */
+}
+
+/* Sección de mapa */
+.mapa {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.mapa iframe {
+    border: none;
+    width: 100%;
+    max-width: 800px;
+    height: 350px;
+}
+
+/* Formulario de contacto */
+.formulario-contacto {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-contacto form {
+    display: grid;
+    gap: 18px;
+}
+
+.formulario-contacto label {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.formulario-contacto input, 
+.formulario-contacto textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.formulario-contacto input:focus, 
+.formulario-contacto textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.formulario-contacto button {
+    background-color: #cc2020;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formulario-contacto button:hover {
+    background-color: #a39898;
+}
+
+/* Sección de Visitarnos */
+.mapa h2 {
+    color: #cc2020; /* Título de "Visítanos en nuestra tienda" en rojo */
+}
+
+/* Sección de contacto */
+.formulario-contacto h2 {
+    color: #cc2020; /* Título de "Contáctanos" en rojo */
+}
+
+
+/* Pie de página */
+footer {
+    background-color:#000;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+footer p {
+    margin-bottom: 20px;
+}
+
+footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer .social-icons a {
+    text-decoration: none;
+    font-size: 1.5em; /* Tamaño del ícono */
+    color: #fff; /* Color de los íconos */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .social-icons a:hover {
+    color: #3498db; /* Cambiar color al hacer hover */
+    transform: scale(1.1); /* Efecto de ampliación al pasar el cursor */
+}
+
+footer .social-icons a:focus {
+    outline: 2px solid #3498db; /* Focus para accesibilidad */
+}
+
+
+/* Estilos responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+
+    .mapa iframe {
+        max-width: 100%;
+    }
+
+    .formulario-contacto {
+        padding: 15px;
+    }
+}
